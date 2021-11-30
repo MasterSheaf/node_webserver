@@ -1,17 +1,21 @@
 const path = require('path');
 // express is actually a function, not an object
 const express = require('express');
+const hbs = require('hbs');
 
 const app = express();
 
 // set express variables
 // setup express to use the hbs templating engine
 app.set('view engine','hbs');
+app.set('views', path.join(__dirname, '../templates/views'));
+hbs.registerPartials(path.join(__dirname, '../templates/partials'));
 
 // tell express where to find static content
 app.use(express.static(path.join(__dirname, '../public')));
 
-// empty route
+
+// empty routenode
 app.get('', (req, res) => {
     // express knows everything it needs to given 
     // the rendering engine set up above
@@ -25,13 +29,16 @@ app.get('', (req, res) => {
 
 app.get('/about', (req, res) => {
     res.render('about', {
-
+        title: 'About Page',
+        name:'Scott Sheaf'
     });
 });
 
 app.get('/help', (req, res) => {
     res.render('help', {
-
+        title: 'Help Page',
+        name:'Scott Sheaf',
+        helpText: "You need too much help for me to help."
     });
 });
 
