@@ -37,9 +37,13 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help Page',
-        name:'Scott Sheaf',
+        name:'Scott Sheaf', 
         helpText: "You need too much help for me to help."
     });
+});
+
+app.get('*', (req, res) => {
+    res.send('Page not found');
 });
 
 app.get('/weather', (req, res) => {
