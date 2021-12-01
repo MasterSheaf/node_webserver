@@ -4,13 +4,22 @@ body {
     max-width: 600px;
     margin: 0 auto;
     padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 100% of the viewport height */
+}
+
+.main-content {
+    flex-grow: 1;
 }
 
 footer {
     color: #888888;
+    /* color: #24ce24; */
     border-top: 1px solid #eeeeee;
     margin-top: 16px;
     padding: 16px 0;
+
 }
 
 header {
@@ -30,6 +39,6 @@ header a {
     text-decoration: none;
 }
 
-img {
-    width: 640px;
+.portrait {
+    width: 400px;
 }
