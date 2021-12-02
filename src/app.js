@@ -7,6 +7,10 @@ const {weather, forecast} = require('./utils/weather');
 
 const app = express();
 
+// if there is an environment variable called PORT we'll use it
+// if not then we'll default to 3000
+const port = process.env.PORT || 3000;
+
 // set express variables
 // setup express to use the hbs templating engine
 app.set('view engine','hbs');
@@ -115,7 +119,7 @@ app.get('*', (req, res) => {
     res.send('Page not found');
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("Server Running on Port 3000");
 });
 
