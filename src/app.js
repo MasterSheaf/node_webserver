@@ -97,9 +97,6 @@ app.get('/forecast', (req, res) => {
             console.log("Geolocation Query Error ", error);
             res.send({error}); 
         } else {
-
-
-
             // now we can get the forecast
             forecast(latitude, longitude, (error, result = {}) => {
                 if (error) {
@@ -110,26 +107,13 @@ app.get('/forecast', (req, res) => {
                     res.send(result);
                 }
             });
-
-
-
-
         }
-    });
-});
-
-app.get('/products', (req, res) => {
-    console.log(req.query);
-    res.send({
-        products: []
     });
 });
 
 app.get('*', (req, res) => {
     res.send('Page not found');
 });
-
-
 
 app.listen(3000, () => {
     console.log("Server Running on Port 3000");
